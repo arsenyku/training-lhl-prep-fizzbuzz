@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 /*
- fuzzbizznezz - output a range of values, substituting the
+ fizzbuzz - output a range of values, substituting the
  words fuzz, bizz, and fuzzbizz for those values which are
  multiples of the user's input.
  
@@ -25,36 +25,32 @@
  
  max - maximum value to evaluate and output.
  
- fuzz - numbers which are multiples of this value will be displayed
- as the text "fuzz".  Numbers which are multiples of this
- and the bizz parameter will be displayed as "fuzzbizz".
+ fizz - numbers which are multiples of this value will be displayed
+ as the text "fizz".  Numbers which are multiples of this
+ and the bizz parameter will be displayed as "fizzbuzz".
  
- bizz - numbers which are multiples of this value will be displayed
- as the text "bizz".  Numbers which are multiples of this
- and the fuzz parameter will be displayed as "fuzzbizz".
+ buzz - numbers which are multiples of this value will be displayed
+ as the text "buzz".  Numbers which are multiples of this
+ and the fuzz parameter will be displayed as "fizzbuzz".
  
  */
-void fuzzbizznezz(int min, int max, int fuzz, int bizz)
+void fizzbuzz(int min, int max, int fizz, int buzz)
 {
     
     for(int i=min; i<=max ; i++){
         
-        char output[9];
+        if (i % fizz == 0 && i % buzz == 0)
+            printf("fizzbuzz\n");
         
-        if (i % fuzz == 0 && i % bizz == 0)
-            sprintf(output, "fuzzbizz");
+        else if (i % fizz == 0)
+            printf("fizz\n");
         
-        else if (i % fuzz == 0)
-            sprintf(output, "fuzz");
-        
-        else if (i % bizz == 0)
-            sprintf(output, "bizz");
+        else if (i % buzz == 0)
+            printf("buzz\n");
         
         else
-            sprintf(output, "%d", i);
+            printf("%d\n", i);
         
-        
-        printf ("%s\n", output);
     }
     
 }
@@ -72,7 +68,7 @@ int main(int argc, const char * argv[])
     
     // Evaluate and display the appropriate values.
     
-    fuzzbizznezz(min, max, fuzz, bizz);
+    fizzbuzz(min, max, fuzz, bizz);
     
     return 0;
     
